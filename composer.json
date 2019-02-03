@@ -1,6 +1,7 @@
 {
     "name": "shevaua/laravel-seo",
+    "description": "Seo tools for laravel blade templates",
     "require": {
-        "php": "^7.0",
+        "php": "^7.0"
     }
 }
