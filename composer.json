@@ -1,0 +1,6 @@
+{
+    "name": "shevaua/laravel-seo",
+    "require": {
+        "php": "^7.0",
+    }
+}
