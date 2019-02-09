@@ -4,6 +4,9 @@ namespace Shevaua\LaravelSeo;
 
 class SeoPage
 {
+
+    const OG_PREFIX = 'og:';
+
     /**
      * @var string $title
      */
@@ -13,6 +16,11 @@ class SeoPage
      * @var array $meta
      */
     private $meta = [];
+
+    /**
+     * @var array $og
+     */
+    private $og = [];
 
     /**
      * @return self
@@ -33,6 +41,19 @@ class SeoPage
     }
 
     /**
+     * @return self
+     */
+    public function setOg(string $property, string $content)
+    {
+        if(!preg_match('#^og:#', $property))
+        {
+            $property = self::OG_PREFIX . $property;
+        }
+        $this->og[$property] = $content;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getTitle(): string
@@ -46,6 +67,14 @@ class SeoPage
     public function getMeta(): array
     {
         return $this->meta;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOg(): array
+    {
+        return $this->og;
     }
 
 }

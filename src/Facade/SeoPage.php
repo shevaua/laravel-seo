@@ -46,4 +46,14 @@ class SeoPage
 
     }
 
+    /**
+     * @return array
+     */
+    public static function getOg()
+    {
+
+        return self::getInstance()->getOg();
+
+    }
+
 }

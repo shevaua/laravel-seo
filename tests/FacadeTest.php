@@ -26,4 +26,17 @@ class FacadeTest extends TestCase
 
     }
 
+    public function testOgSeoPage()
+    {
+     
+        $this->assertEmpty(FacadeSeo::getOg());
+        FacadeSeo::getInstance()
+            ->setOg('title', 'test');
+        $this->assertEquals(
+            ['og:title' => 'test'], 
+            FacadeSeo::getOg()
+        );
+
+    }
+
 }
