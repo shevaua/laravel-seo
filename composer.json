@@ -2,7 +2,8 @@
     "name": "shevaua/laravel-seo",
     "description": "Seo tools for laravel blade templates",
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "laravel/framework": "^5.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
@@ -11,5 +12,15 @@
         "classmap": [
             "src/"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shevaua\\LaravelSeo\\Provider\\Directive"
+            ],
+            "aliases": {
+                "SeoPage": "Shevaua\\LaravelSeo\\Facade\\SeoPage"
+            }
+        }
     }
 }
