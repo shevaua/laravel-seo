@@ -5,6 +5,9 @@ namespace Shevaua\LaravelSeo\Provider;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
+use Shevaua\LaravelSeo\SeoPage;
+use Shevaua\LaravelSeo\Facade\SeoPage as SeoPageFacade;
+
 class Directive extends ServiceProvider
 {
 
@@ -15,7 +18,9 @@ class Directive extends ServiceProvider
      */
     public function register()
     {
-        
+        $this->app->singleton(SeoPage::class, function($app) {
+            return SeoPageFacade::getInstance();
+        });
     }
 
     /**
@@ -28,7 +33,7 @@ class Directive extends ServiceProvider
         $path = realpath(__DIR__.'/../../views');
         $this->loadViewsFrom($path, 'shevaua/laravel-seo');
         Blade::directive('seo', function ($param = null) {
-            return view('shevaua/laravel-seo::seo')->render();
+            return '<?= $__env->make(\'shevaua/laravel-seo::seo\')->render() ?>';
         });
     }
 
