@@ -2,6 +2,9 @@
 
 namespace Shevaua\LaravelSeo;
 
+/**
+ * Object for storing meta information
+ */
 class SeoPage
 {
 
@@ -23,27 +26,38 @@ class SeoPage
     private $og = [];
 
     /**
+     * Set title
+     * 
+     * @param string $title
      * @return self
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
         return $this;
     }
 
     /**
+     * Set meta information
+     * 
+     * @param string $name
+     * @param string $content
      * @return self
      */
-    public function setMeta(string $name, string $content)
+    public function setMeta(string $name, string $content): self
     {
-        $this->meta[$name] = $content; 
+        $this->meta[$name] = $content;
         return $this;
     }
 
     /**
+     * Set OpenGraph information
+     * 
+     * @param string $property
+     * @param string $content
      * @return self
      */
-    public function setOg(string $property, string $content)
+    public function setOg(string $property, string $content): self
     {
         if(!preg_match('#^og:#', $property))
         {
@@ -54,6 +68,8 @@ class SeoPage
     }
 
     /**
+     * Get title
+     * 
      * @return string
      */
     public function getTitle(): string
@@ -62,6 +78,8 @@ class SeoPage
     }
 
     /**
+     * Get meta information
+     * 
      * @return array
      */
     public function getMeta(): array
@@ -70,6 +88,8 @@ class SeoPage
     }
 
     /**
+     * Get OpenGraph information
+     * 
      * @return array
      */
     public function getOg(): array

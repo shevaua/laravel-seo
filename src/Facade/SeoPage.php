@@ -4,6 +4,9 @@ namespace Shevaua\LaravelSeo\Facade;
 
 use Shevaua\LaravelSeo\SeoPage as SeoPageObject;
 
+/**
+ * Facade for wrapping SeoPage object
+ */
 class SeoPage
 {
 
@@ -13,9 +16,11 @@ class SeoPage
     private static $instance;
 
     /**
-     * @return Shevaua\LaravelSeo\SeoPage
+     * Get SeoPage instance 
+     * 
+     * @return SeoPageObject
      */
-    public static function getInstance()
+    public static function getInstance(): SeoPageObject
     {
 
         if(!self::$instance)
@@ -27,9 +32,11 @@ class SeoPage
     }
 
     /**
+     * Get title
+     * 
      * @return string
      */
-    public static function getTitle()
+    public static function getTitle(): string
     {
 
         return self::getInstance()->getTitle();
@@ -37,9 +44,11 @@ class SeoPage
     }
 
     /**
+     * Get meta info
+     * 
      * @return array
      */
-    public static function getMeta()
+    public static function getMeta(): array
     {
 
         return self::getInstance()->getMeta();
@@ -47,9 +56,11 @@ class SeoPage
     }
 
     /**
+     * Get OpenGraph info
+     * 
      * @return array
      */
-    public static function getOg()
+    public static function getOg(): array
     {
 
         return self::getInstance()->getOg();

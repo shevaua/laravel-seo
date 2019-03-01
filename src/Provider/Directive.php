@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Blade;
 use Shevaua\LaravelSeo\SeoPage;
 use Shevaua\LaravelSeo\Facade\SeoPage as SeoPageFacade;
 
+/**
+ * Laravel Service Provider
+ * 
+ * provides: 
+ *   1) access to SeoPage singleton
+ *   2) ability to use @seo directive
+ */
 class Directive extends ServiceProvider
 {
 
@@ -16,7 +23,7 @@ class Directive extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(SeoPage::class, function($app) {
             return SeoPageFacade::getInstance();
@@ -28,7 +35,7 @@ class Directive extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $path = realpath(__DIR__.'/../../views');
         $this->loadViewsFrom($path, 'shevaua/laravel-seo');
